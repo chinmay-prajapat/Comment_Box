@@ -1,13 +1,13 @@
 import React from "react";
+import CommentBox from "./CommentBox";
 import CommentList from "./CommentList";
-
-import ShowComments from "./CommentList";
 
 const App = () => {
   return (
     <div className="ui container">
+      <CommentBox />
+
       <CommentList />
-      <ShowComments />
     </div>
   );
 };
