@@ -1,5 +1,13 @@
 import React from "react";
-const ShowComments = () => {
-  return <div>Show Comments</div>;
+import { connect } from "react-redux";
+const ShowComments = ({ comments }) => {
+  console.log(comments);
+  return <div>home</div>;
 };
-export default ShowComments;
+const mapStateToProps = (state) => {
+  console.log(state.comments);
+  return {
+    comments: state.comments,
+  };
+};
+export default connect(mapStateToProps)(ShowComments);
