@@ -20,7 +20,7 @@ it("can fetch a list of comments and display them", (done) => {
     </Root>
   );
   Wrapped.find(".fetch-comments").simulate("click");
-  setTimeout(() => {
+  moxios.wait(() => {
     Wrapped.update();
     expect(Wrapped.find("li").length).toEqual(2);
     done();
