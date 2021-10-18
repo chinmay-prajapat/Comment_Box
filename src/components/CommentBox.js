@@ -1,9 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { comments } from "../actions";
-const CommentBox = () => {
-  const [comment, setComment] = useState("");
-
-  return <div className="ui segment">Comment Box</div>;
-};
+class CommentBox extends Component {
+  state = { comment: "" };
+  handleChange = (e) => {
+    this.setState({ comment: e.target.value });
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <h4>Add a Comment</h4>
+        <textarea onChange={this.handleChange} value={this.state.comment} />
+        <div>
+          <button>Submit</button>
+        </div>
+      </form>
+    );
+  }
+}
 export default CommentBox;
