@@ -1,6 +1,9 @@
 export default (state = [], action) => {
-  if (action.type === "COMMENT") {
-    return [...state, action.payload];
+  switch (action.type) {
+    case "SAVE_COMMENT":
+      return [...state, action.payload];
+
+    default:
+      return state;
   }
-  return state;
 };

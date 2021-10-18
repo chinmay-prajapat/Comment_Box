@@ -8,6 +8,7 @@ class CommentBox extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.comments(this.state.comment);
     this.setState({ comment: "" });
   };
   render() {
@@ -22,4 +23,5 @@ class CommentBox extends Component {
     );
   }
 }
-export default CommentBox;
+
+export default connect(null, { comments })(CommentBox);
