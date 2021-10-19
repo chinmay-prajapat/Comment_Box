@@ -5,6 +5,7 @@ export default ({ dispatch }) =>
       return next(action);
     }
     action.payload.then((res) => {
+      //promise
       const newAction = { ...action, payload: res };
       dispatch(newAction);
     });
