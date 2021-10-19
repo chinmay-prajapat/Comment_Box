@@ -2,19 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { comments } from "../actions";
 import { fetchComments } from "../actions";
+import requireAuth from "./requireAuth";
 class CommentBox extends Component {
   state = { comment: "" };
-  componentDidMount() {
-    this.shouldNavigateAway();
-  }
-  componentDidUpdate() {
-    this.shouldNavigateAway();
-  }
-  shouldNavigateAway() {
-    if (!this.props.auth) {
-      this.props.history.push("/");
-    }
-  }
+
   handleChange = (e) => {
     this.setState({ comment: e.target.value });
   };
@@ -40,11 +31,7 @@ class CommentBox extends Component {
     );
   }
 }
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-  };
-}
-export default connect(mapStateToProps, { comments, fetchComments })(
-  CommentBox
+
+export default connect(null, { comments, fetchComments })(
+  requireAuth(CommentBox)
 );
