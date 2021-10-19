@@ -6,8 +6,8 @@ import CommentList from "./CommentList";
 export default () => {
   return (
     <div className="ui container">
-      <CommentBox />
-      <CommentList />
+      <Route path="/post" exact component={CommentBox} />
+      <Route path="/" exact component={CommentList} />
     </div>
   );
 };
